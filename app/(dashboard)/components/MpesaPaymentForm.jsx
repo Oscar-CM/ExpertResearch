@@ -42,7 +42,7 @@ export default function MpesaPaymentForm({ user }) {
     <div>
       <div>
         <h1 className="text-center text-gray-700 mb-2 mt-2">
-          This payment of 1 KES is for account activation, which helps us ensure you're serious about making money doing online work. We're excited to be part of your success journey!
+          This payment of 1 KES is for account activation, which helps us ensure you are serious about making money doing online work. We are excited to be part of your success journey!
         </h1>
       </div>
       <div className="min-h-screen flex mt-10 justify-center bg-gray-100">

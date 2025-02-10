@@ -30,7 +30,7 @@ const DashboardComponent = ({ user }) => {
     if (user && user.id) {
       fetchActivationStatus();
     }
-  }, [user]);
+  }, [user, fetchActivationStatus]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">

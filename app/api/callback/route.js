@@ -2,7 +2,6 @@
 import { db } from "../../../configs/index";
 import { payments } from "../../../configs/schema";
 import { eq } from "drizzle-orm";
-import axios from "axios";
 
 import cors from "nextjs-cors";
 
@@ -21,7 +20,7 @@ export async function POST(req) {
     console.log("Parsed Callback Data:", result);
 
     // Extract relevant data from the callback
-    const { CheckoutRequestID, ResultCode, ResultDesc, MerchantRequestID, TransactionDate, Amount, MpesaReceiptNumber } =
+    const { CheckoutRequestID, ResultCode, ResultDesc, MpesaReceiptNumber } =
       result.Body.stkCallback;
 
     if (ResultCode !== 0) {

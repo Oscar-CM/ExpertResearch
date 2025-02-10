@@ -1,5 +1,4 @@
 import Image from "next/image";
-import about from './components/about';
 import Telegram from './components/Telegram'
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
