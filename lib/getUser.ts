@@ -19,7 +19,7 @@ export const getUser = async () => {
       // Add other fields as needed
     };
   } catch (error) {
-    console.error("Error fetching user:");
+    console.error("Error fetching user:", error);
     return null;
   }
 };

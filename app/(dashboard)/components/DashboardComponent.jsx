@@ -7,30 +7,29 @@ const DashboardComponent = ({ user }) => {
   const [isActive, setIsActive] = useState(false); // State to track account activation status
   const [loading, setLoading] = useState(true); // State to handle loading
 
-  // Function to fetch the activation status from the server
-  const fetchActivationStatus = async () => {
-    try {
-      const response = await fetch(`/api/user/activation?userId=${user.id}`);
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsActive(data.activated);
-      } else {
-        console.error("Failed to fetch activation status:", data.message);
-      }
-    } catch (error) {
-      console.error("Error fetching activation status:", error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Fetch activation status on component mount
   useEffect(() => {
     if (user && user.id) {
+      const fetchActivationStatus = async () => {
+        try {
+          const response = await fetch(`/api/user/activation?userId=${user.id}`);
+          const data = await response.json();
+
+          if (response.ok) {
+            setIsActive(data.activated);
+          } else {
+            console.error("Failed to fetch activation status:", data.message);
+          }
+        } catch (error) {
+          console.error("Error fetching activation status:", error.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+
       fetchActivationStatus();
     }
-  }, [user, fetchActivationStatus]);
+  }, [user]); // Only depend on 'user'
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
